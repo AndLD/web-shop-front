@@ -1,13 +1,16 @@
 import React from 'react';
-import { Navbar } from './components/Navbar';
+import { BrowserRouter } from "react-router-dom"
+import { useRoutes } from "./routes"
 
 const App: React.FunctionComponent = () => {
-  return <>
-    <Navbar />
-    <div className="container">
-      <h1>Test</h1>
-    </div>
-  </>;
+
+  const routes = useRoutes()
+
+  return (
+    <BrowserRouter>
+      {routes}
+    </BrowserRouter>
+  )
 }
 
 export default App;
