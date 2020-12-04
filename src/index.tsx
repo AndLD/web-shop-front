@@ -7,7 +7,6 @@ import reportWebVitals from './reportWebVitals';
 //CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './customizeBootstrap.scss'
-
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import './normalize.css';
 
