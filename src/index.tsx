@@ -9,6 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './customizeBootstrap.scss'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import './normalize.css';
+import './general.scss';
 
 ReactDOM.render(
   <React.StrictMode>

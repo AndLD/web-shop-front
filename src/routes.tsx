@@ -1,14 +1,33 @@
 import React from "react"
 import {Switch, Route, Redirect} from "react-router-dom"
 
-import {Slider} from "./components/Slider/Slider"
+import {Header} from "./components/Header/Header"
+import {Slider} from "./components/Slider/Slider.js"
+
+import {TelegramChannel} from "./components/TelegramChannel/TelegramChannel"
 
 export const useRoutes = () => {
     return (
         <Switch>
 
-            <Route path="/" exact>
-                <Slider />
+            <Route path="/" exact> 
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12">
+                            <Header />
+                            <Slider />
+                        </div>
+                    </div>
+
+                    {/* <div className="row">
+                        <div className="col-6">
+                            <TelegramChannel borderRadius = {"20px 0 0 20px"} reverse = {false} />
+                        </div>
+                        <div className="col-6">
+                            <TelegramChannel borderRadius = {"0 20px 20px 0"} reverse = {false} />
+                        </div>
+                    </div> */}
+                </div>
             </Route>
 
             <Redirect to="/" />

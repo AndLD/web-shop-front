@@ -1,0 +1,23 @@
+.telegram-channel {
+    background-color: #1e96c8;
+    height: 90px;
+    .logo-wr {
+        img {
+            margin-left: 20px;
+            height: 70px;
+        }
+    }
+    .link {
+        color: white;
+        span {
+            font-size: 34px;
+        }
+        button {
+            color: white;
+            border: 2px solid black;
+            font-size: 30px;
+            border-radius: 10px;
+            background-color: transparent;
+        }
+    }
+}
