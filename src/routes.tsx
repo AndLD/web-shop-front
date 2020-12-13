@@ -6,6 +6,8 @@ import {Slider} from "./components/Slider/Slider.js"
 
 import {TelegramChannel} from "./components/TelegramChannel/TelegramChannel"
 
+import {SlavicAdminPanel} from "./components/SlavicAdminPanel/SlavicAdminPanel"
+
 export const useRoutes = () => {
     return (
         <Switch>
@@ -28,6 +30,10 @@ export const useRoutes = () => {
                         </div>
                     </div> */}
                 </div>
+            </Route>
+
+            <Route path="/admin" exact> 
+                <SlavicAdminPanel />
             </Route>
 
             <Redirect to="/" />
