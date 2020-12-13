@@ -1,0 +1,55 @@
+nav.admin-nav {
+    height: 100%;
+    background-color: #252b3b;
+    max-width: 300px;
+    .admin-logo {
+        height: 70px;
+        box-shadow: 0 1px 10px rgba(0,0,0,0.3);
+        line-height: 70px;
+        // padding-left: 15px;
+        span {
+            color: lightblue;
+            font-size: 1.5em;
+        }
+        img {
+            width: 30%;
+            height: 100%;
+        }
+    }
+    .menu {
+        padding-left: 0;
+        list-style: none;
+        padding: 0 15px 0 10px;
+        li {
+            color: #8590a5;
+            font-weight: 400;
+            position: relative;
+            cursor: pointer;
+            padding: 20px 15px 5px 15px;
+
+            .arrow {
+                position: absolute;
+                top: 21px;
+                right: 15px;
+                // margin-left: 15px;
+            }
+            ul{ 
+                li { //Подпункты
+                    font-weight: 300;
+                    border: none;
+                    padding-bottom: 0px;
+                    padding-right: 0;
+                    list-style: none;
+                    margin-left: -35px;
+                }
+            }
+        }    
+        li:hover {
+            color: #d7e4ec;
+            opacity: 0.9;
+        }    
+        .active {
+            color: #d7e4ec;
+        }
+    }
+}
