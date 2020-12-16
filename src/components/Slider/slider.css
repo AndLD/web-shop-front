@@ -2,24 +2,12 @@
 .slider-wrapper {
   position: relative;
   margin: auto;
-  height: 47vw;
+  height: 400px;
   overflow: hidden;
   /* Для кнопок */
 }
 
-@media screen and (min-width: 1850px) {
-  .slider-wrapper {
-    height: 41vw;
-  }
-}
-
-@media screen and (min-width: 2500px) {
-  .slider-wrapper {
-    height: 720px;
-  }
-}
-
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   .slider-wrapper {
     height: 35vw;
   }
@@ -47,7 +35,7 @@
   position: absolute;
   background-color: rgba(255, 255, 255, 0.3);
   top: 0;
-  width: 2%;
+  width: 4%;
   height: 100%;
   opacity: 0;
   cursor: pointer;
@@ -56,11 +44,19 @@
 }
 
 .slider-wrapper .slider-button:hover {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .slider-wrapper .slider-button img {
+  opacity: 1;
   width: 100%;
+  margin-top: 170px;
+}
+
+@media screen and (max-width: 600px) {
+  .slider-wrapper .slider-button img {
+    margin-top: 15vw;
+  }
 }
 
 .slider-wrapper .slider-button-left {
@@ -78,10 +74,10 @@
   left: 47%;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   .points {
     top: 85%;
-    left: 36%;
+    left: 43%;
   }
 }
 
@@ -98,10 +94,10 @@
   transition: all ease 0.3s;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   .points .point {
-    width: 1vw;
-    height: 1vw;
+    width: 3vw;
+    height: 3vw;
   }
 }
 

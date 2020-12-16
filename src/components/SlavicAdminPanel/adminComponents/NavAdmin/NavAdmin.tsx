@@ -1,7 +1,8 @@
 import React, {useMemo, useState} from 'react'
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
+
 import $ from 'jquery'
 import './navAdmin.scss'
-
 interface LiProps {
     icon?: string;
     text: string;
@@ -25,32 +26,33 @@ const Li = ({icon, text, callback} : LiProps) => (
 
 const Submenu = ({icon, text, callback, children} : UlProps) => {
 
-    const [status, showSubmenu] = useState<boolean>(false)
+    const [status, showSubmenu] = useState<boolean>(false) //Хук на открытие/закрытие подменю
 
     useMemo(()=>{
-        if(status == false) children = null
+        if(!status)
+            children = null
     }, [status])
-
-    анимации
 
     return(
         <li onClick={() => showSubmenu(!status)}> 
             <i className={icon}></i> <span>{text}</span> <i className="arrow fas fa-chevron-down"></i>
-             <ul> 
-                {children}
-            </ul>
+            
+                 
+                <CSSTransition in={status} timeout={200} classNames="my-node">
+                    <ul> 
+                        {children}
+                    </ul>
+                </CSSTransition>
+                
+            
         </li>
     )
 
 }
-
 export class NavAdmin extends React.Component {
 
     constructor(props : any) {
         super(props)
-
-        // this.toogleDisplayNone = this.toogleDisplayNone.bind(this);
-        // this.showSubmenu = this.showSubmenu;
     }
 
     render() {
@@ -94,18 +96,6 @@ export class NavAdmin extends React.Component {
                     <Li icon={"fas fa-sign-out-alt"} text={"Выйти"} callback={() => {
                         console.log("qqqqewqe")
                     }} />
-
-                    {/* <li className="active"> <i className="fas fa-book"></i>  <span>Управление товаром</span></li>
-                    <li> <i className="fas fa-users"></i> <span>Пользователи</span></li>
-                    <li> 
-                        <i className="fas fa-sliders-h"></i> <span>Настройки</span> <i className="arrow fas fa-chevron-down"></i>
-                        <ul>
-                            <li>Цветовая схема</li>
-                            <li>Сообщить об ошибке</li>
-                            <li>Проверить обновление</li>
-                        </ul>
-                    </li>
-                    <li> <i className="fas fa-sign-out-alt"></i> <span>Выйти</span></li> */} 
                 </ul>
             </nav>
         )

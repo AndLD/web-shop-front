@@ -25,11 +25,12 @@ nav.admin-nav {
             font-weight: 400;
             position: relative;
             cursor: pointer;
-            padding: 20px 15px 5px 15px;
+            padding: 0px 15px 0px 15px;
+            margin: 20px 0 5px;
 
             .arrow {
                 position: absolute;
-                top: 21px;
+                top: 7px;
                 right: 15px;
                 // margin-left: 15px;
             }
@@ -52,4 +53,19 @@ nav.admin-nav {
             color: #d7e4ec;
         }
     }
+}
+
+.my-node-enter {
+    opacity: 0;
+}
+.my-node-enter-active {
+    opacity: 1;
+    transition: opacity 200ms;
+}
+.my-node-exit {
+    opacity: 1;
+}
+.my-node-exit-active {
+    opacity: 0;
+    transition: opacity 200ms;
 }
