@@ -1,0 +1,61 @@
+nav.admin-nav {
+  height: 100%;
+  background-color: #252b3b;
+  max-width: 300px;
+}
+
+nav.admin-nav .admin-logo {
+  height: 70px;
+  -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+  line-height: 70px;
+}
+
+nav.admin-nav .admin-logo span {
+  color: lightblue;
+  font-size: 1.5em;
+}
+
+nav.admin-nav .admin-logo img {
+  width: 30%;
+  height: 100%;
+}
+
+nav.admin-nav .menu {
+  padding-left: 0;
+  list-style: none;
+  padding: 0 15px 0 10px;
+}
+
+nav.admin-nav .menu li {
+  color: #8590a5;
+  font-weight: 400;
+  position: relative;
+  cursor: pointer;
+  padding: 20px 15px 5px 15px;
+}
+
+nav.admin-nav .menu li .arrow {
+  position: absolute;
+  top: 21px;
+  right: 15px;
+}
+
+nav.admin-nav .menu li ul li {
+  font-weight: 300;
+  border: none;
+  padding-bottom: 0px;
+  padding-right: 0;
+  list-style: none;
+  margin-left: -35px;
+}
+
+nav.admin-nav .menu li:hover {
+  color: #d7e4ec;
+  opacity: 0.9;
+}
+
+nav.admin-nav .menu .active {
+  color: #d7e4ec;
+}
+/*# sourceMappingURL=navAdmin.css.map */

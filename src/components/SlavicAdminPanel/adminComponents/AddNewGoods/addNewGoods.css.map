@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,eAAe,CAAC;EACZ,gBAAgB,EAAE,SAAS;EAC3B,MAAM,EAAE,IAAI;CAaf;;AAfD,AAII,eAJW,CAIX,YAAY,CAAC;EAIT,gBAAgB,EAAE,SAAS;CAC9B;;AATL,AAUI,eAVW,CAUX,aAAa,CAAC;EAEV,gBAAgB,EAAE,cAAc;CACnC",
+    "sources": [
+        "addNewGoods.scss"
+    ],
+    "names": [],
+    "file": "addNewGoods.css"
+}

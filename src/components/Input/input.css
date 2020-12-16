@@ -1,0 +1,26 @@
+input {
+  outline: none;
+  padding-left: 10px !important;
+  margin-top: 5px !important;
+}
+
+input[type="checkbox"] {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  min-width: 15px !important;
+  height: 15px;
+}
+
+.iterator-input-wr .iterator-input {
+  position: relative;
+}
+
+.iterator-input-wr .iterator-input input {
+  margin-left: 10px;
+}
+
+.iterator-input-wr .iterator-input label {
+  position: absolute;
+  right: 0;
+}
+/*# sourceMappingURL=input.css.map */
