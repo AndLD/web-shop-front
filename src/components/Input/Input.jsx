@@ -1,23 +1,6 @@
 import React from 'react'
-import $ from 'jquery'
+// import $ from 'jquery'
 import './input.scss'
-
-type InputProps = {
-    tag? : string,
-    options? : string[],
-    type? : string,
-    id : string,
-    className? : string,
-    modification? : string,
-    placeholder? : string,
-
-    width? : string | number,
-    height? : number,
-    padding? : number,
-
-    borderRadius?: string,
-    color? : string
-}
 
 export const Input = ({
     tag = "input",
@@ -32,7 +15,7 @@ export const Input = ({
     height = 35,
     borderRadius,
     color = "black"
-} : InputProps) => {
+}) => {
 
     const style = {
         width: width,
@@ -81,7 +64,7 @@ export const Input = ({
     }
 
 
-    function getInput(tag : string) : any{
+    function getInput(tag){
         let input = <></>
         if(tag == "input") {
             switch(modification) {
@@ -92,7 +75,7 @@ export const Input = ({
                     input = InputIterator()
                     break
                 default:
-                    console.log("Отсутствует такой модификатор")
+                    console.error("Отсутствует такой модификатор")
             }
         } else if(tag == "select") {
             switch(modification) {
@@ -100,10 +83,10 @@ export const Input = ({
                     input = SwitchDefault()
                     break
                 default:
-                    console.log("Отсутствует такой модификатор")
+                    console.error("Отсутствует такой модификатор")
             }
         } else {
-            console.log("Отсутствует такой тег")
+            console.error("Отсутствует такой тег")
         }
         return input
     }  

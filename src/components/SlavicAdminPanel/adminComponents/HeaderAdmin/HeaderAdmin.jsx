@@ -1,16 +1,16 @@
 import React from 'react'
-import $ from 'jquery'
+// import $ from 'jquery'
 import './headerAdmin.scss'
 import { NavAdmin } from '../NavAdmin/NavAdmin'
 
 export const HeaderAdmin = () => {
 
         function hideNavText() { //скрывает nav
-            $(".admin-nav li > span").toggleClass("d-none")
+            // $(".admin-nav li > span").toggleClass("d-none")
 
-            let $adminLogo = $(".admin-logo > span")
-            $adminLogo.toggleClass("d-none")
-            $adminLogo.toggleClass("d-none")
+            // let $adminLogo = $(".admin-logo > span")
+            // $adminLogo.toggleClass("d-none")
+            // $adminLogo.toggleClass("d-none")
             // $adminLogo.getElementsByClassName("").toggleClass("d-none")
         }
 

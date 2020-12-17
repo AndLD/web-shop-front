@@ -1,22 +1,17 @@
 import React from 'react'
-import $ from 'jquery'
+// import $ from 'jquery'
 import './telegramChannel.scss'
 
-type TelegramChannelProps = {
-    borderRadius? : string,
-    reverse? : boolean,
-}
-
-export const TelegramChannel = ({ borderRadius = "0", reverse = false }: TelegramChannelProps) => {
-    $( window ).on( "load" , function(){
-        if(borderRadius != "0")
-            $(".telegram-channel").css("border-radius", borderRadius)
+export const TelegramChannel = ({ borderRadius = "0", reverse = false }) => {
+    // $( window ).on( "load" , function(){
+    //     if(borderRadius != "0")
+    //         $(".telegram-channel").css("border-radius", borderRadius)
         
-        if(reverse == true){
+    //     if(reverse == true){
 
-        }
+    //     }
         
-    })
+    // })
     return(
         <div className="telegram-channel d-flex align-items-center">
             <div className="logo-wr">

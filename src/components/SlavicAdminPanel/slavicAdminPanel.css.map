@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,mBAAmB,CAAC;EAChB,MAAM,EAAE,IAAI;CAKf;;AAND,AAEI,mBAFe,CAEf,IAAI,CAAC;EACD,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,IAAI;CACd",
-    "sources": [
-        "slavicAdminPanel.scss"
-    ],
-    "names": [],
-    "file": "slavicAdminPanel.css"
-}

@@ -1,5 +1,5 @@
 import React, {useRef, useEffect} from 'react'
-import $, { event } from 'jquery'
+// import $, { event } from 'jquery'
 import './slider.scss'
 
 export const Slider = () => {
