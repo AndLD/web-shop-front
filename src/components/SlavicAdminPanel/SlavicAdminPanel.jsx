@@ -1,18 +1,14 @@
 import React from 'react'
-import $ from 'jquery'
+// import $ from 'jquery'
 import './slavicAdminPanel.scss'
 
 import {AddNewGoods} from "./adminComponents/AddNewGoods/AddNewGoods"
 import {NavAdmin} from "./adminComponents/NavAdmin/NavAdmin"
 import {HeaderAdmin} from "./adminComponents/HeaderAdmin/HeaderAdmin"
 
-interface SlavicAdminProps {
-    
-}
+export class SlavicAdminPanel extends React.Component {
 
-export class SlavicAdminPanel extends React.Component<SlavicAdminProps> {
-
-    constructor(props : any) {
+    constructor(props) {
         super(props)
 
         // this.toogleDisplayNone = this.toogleDisplayNone.bind(this);
