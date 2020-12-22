@@ -1,19 +1,29 @@
+@import "node_modules/bootstrap/scss/mixins/_breakpoints";
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+
 nav.admin-nav {
     height: 100%;
     background-color: #252b3b;
-    max-width: 300px;
+    
+    @include media-breakpoint-down(md) { 
+        position: absolute;
+        width: 100% !important;
+        z-index: 1;
+        top: 70px;
+    }
     .admin-logo {
         height: 70px;
         box-shadow: 0 1px 10px rgba(0,0,0,0.3);
         line-height: 70px;
-        // padding-left: 15px;
+   
         span {
             color: lightblue;
             font-size: 1.5em;
         }
         img {
-            width: 30%;
-            height: 100%;
+            margin-top: -10px;
+            width: 100px;
         }
     }
     .menu {
@@ -27,6 +37,7 @@ nav.admin-nav {
             cursor: pointer;
             padding: 0px 15px 0px 15px;
             margin: 20px 0 5px;
+            position: relative;
 
             .arrow {
                 position: absolute;
@@ -44,10 +55,18 @@ nav.admin-nav {
                     margin-left: -35px;
                 }
             }
+            .collapsed-submenu {
+                position: absolute;
+                background-color: #424d6a;
+                z-index: 22;
+                top: 0;
+                left: 65px;
+                width: 200px;
+                padding-bottom: 15px;
+            }
         }    
         li:hover {
             color: #d7e4ec;
-            opacity: 0.9;
         }    
         .active {
             color: #d7e4ec;
@@ -68,4 +87,8 @@ nav.admin-nav {
 .my-node-exit-active {
     opacity: 0;
     transition: opacity 200ms;
+}
+
+.w-300{
+    width: 300px;
 }

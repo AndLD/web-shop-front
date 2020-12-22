@@ -1,0 +1,9 @@
+@font-face {
+    font-family: "FuturaPT-Heavy"; 
+    src: url("./FuturaPT-Heavy.ttf") format("truetype"); 
+}
+
+@font-face {
+    font-family: "FuturaPT-Medium"; 
+    src: url("./FuturaPT-Medium.ttf") format("truetype"); 
+}
