@@ -1,31 +1,24 @@
-import React from 'react'
-// import $ from 'jquery'
+import React, {useState, useMemo} from 'react'
 import './slavicAdminPanel.scss'
 
 import {AddNewGoods} from "./adminComponents/AddNewGoods/AddNewGoods"
 import {NavAdmin} from "./adminComponents/NavAdmin/NavAdmin"
 import {HeaderAdmin} from "./adminComponents/HeaderAdmin/HeaderAdmin"
 
-export class SlavicAdminPanel extends React.Component {
+export const SlavicAdminPanel = (props) => {
 
-    constructor(props) {
-        super(props)
+    let [collapsed, collapseMenu] = useState(false);
 
-        // this.toogleDisplayNone = this.toogleDisplayNone.bind(this);
-    }
+    return (
+        <div className="slavic-admin-panel d-flex">
 
-    render() {
-        return (
-            <div className="slavic-admin-panel d-flex">
+            <NavAdmin collapsed={collapsed}/>
+           
+            <main className="d-flex flex-column">
+                <HeaderAdmin collapseMenu={() => {collapseMenu(!collapsed)}}/>
+                <AddNewGoods title="Добавление товара"/>
+            </main>
 
-                <NavAdmin />
-
-                <main className="d-flex flex-column">
-                    <HeaderAdmin />
-                    <AddNewGoods title="Добавление товара"/>
-                </main>
-
-            </div>
-        )
-    }
+        </div>
+    )
 }
