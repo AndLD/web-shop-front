@@ -2,21 +2,22 @@ import React from 'react'
 // import $ from 'jquery'
 import './input.scss'
 
-export const Input = ({
-    tag = "input",
-    options = [],
-    type = "text",
-    id,
-    className = "",
-    modification = "",
-    placeholder,
+export const Input = (props) => {
     
-    width = "100%",
-    height = 35,
-    borderRadius,
-    color = "black"
-}) => {
-
+    let tag = props.tag || "input",
+        options = props.options || [],
+        type = props.type || "text",
+        id = props.id,
+        name = props.name,
+        className = props.className || "",
+        modification = props.modification || "",
+        placeholder = props.placeholder,
+        
+        width = props.width || "100%",
+        height = props.height || 35,
+        borderRadius = props.borderRadius,
+        color = props.color || "black"
+        
     const style = {
         width: width,
         height: height,
@@ -25,29 +26,42 @@ export const Input = ({
     }
 
     //* input
-    function InputDefault() {
+    function InputDefault(props) {
+        type = props.type || "text"
         return(
             <input 
-                type={type} 
-                id={id} 
-                className= {className} 
-                placeholder={placeholder}
+                type={props.type} 
+                id={props.id} 
+                className= {props.className} 
+                placeholder={props.placeholder}
                 autoComplete="off"
-                style={style}
+                style={props.style}
+                name={props.name}
+                accept={props.accept}
             />
         )
     }
 
     //* input + iterator
-    function InputIterator() {
-        let top = height / 2 - 7
+    // function InputIterator() {
+    //     let top = height / 2 - 7
+    //     return(
+    //         <div className="d-flex align-items-center iterator-input-wr" style={{width: width}}>
+    //             <InputDefault />
+    //             <div className="iterator-input d-flex align-items-center">
+    //                 <input type="checkbox" className="main-checkbox " id={id} />
+    //                 <label htmlFor={id}> i++ </label>
+    //             </div>
+    //         </div>
+    //     )
+    // }
+
+    //* file
+    function InputFile() {
+        console.log("filesss")
         return(
-            <div className="d-flex align-items-center iterator-input-wr" style={{width: width}}>
-                <InputDefault />
-                <div className="iterator-input d-flex align-items-center">
-                    <input type="checkbox" className="main-checkbox " id={id} />
-                    <label htmlFor={id}> i++ </label>
-                </div>
+            <div className="input-file">
+                <InputDefault type={"file"} id={id} name={'file'} accept={".jpg, .jpeg, .png"} className={className} placeholder={placeholder} style={style}/>
             </div>
         )
     }
@@ -71,8 +85,11 @@ export const Input = ({
                 case "":
                     input = InputDefault()
                     break 
-                case "iterator":
-                    input = InputIterator()
+                // case "iterator":
+                //     input = InputIterator()
+                //     break
+                case "file":
+                    input = InputFile()
                     break
                 default:
                     console.error("Отсутствует такой модификатор")

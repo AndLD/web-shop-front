@@ -62,6 +62,7 @@ export const NavAdmin = (props) => {
     const [width, changeWindowWidth] = useState()
 
     useEffect(() => {
+        changeWindowWidth(window.innerWidth)
         if(width <= 991) { //Если идёт переход на телефоны или планшеты, то прячем меню (настроить ширину)
             adminNav.current.classList.remove("w-300")
             if(collapsed) adminNav.current.classList.remove("d-none")
@@ -75,7 +76,7 @@ export const NavAdmin = (props) => {
     })
 
     if(!collapsed) Logo = null
-
+    
     window.addEventListener("resize", function() { // меняем значения окна в хуке
         changeWindowWidth(window.innerWidth)
     })

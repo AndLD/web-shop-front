@@ -3,10 +3,14 @@
     height: 100%;
 
     .left-column {
+        padding-top: 20px;
         // height: 92.5vh;
         // height: 100vh;
         // height: 100%;
         background-color: lightgray;
+        input {
+            border: 1px solid black;
+        }
     }
     .right-column {
         // height: 100%;
