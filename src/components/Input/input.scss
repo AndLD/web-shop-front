@@ -24,6 +24,18 @@ input[type = "checkbox"] {
             position: absolute;
             right: 0;
         }
-    }
+    }   
+}
+
+.input-file {
+    width: 100%;
     
+    background-color: red;
+    border: 1px dashed black !important;
+    input {
+        border: none !important;
+        height: 65px !important;
+        padding-top: 17px;
+        margin-left: 70px;
+    }
 }
