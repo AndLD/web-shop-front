@@ -1,7 +1,6 @@
 import React from 'react'
 // import $ from 'jquery'
 import './addNewGoods.scss'
-
 import {Input} from '../../../Input/Input'
 
 export class AddNewGoods extends React.Component {
@@ -12,54 +11,45 @@ export class AddNewGoods extends React.Component {
         this.validateItem = this.validateItem.bind(this);
     }
 
+    readFileAsync(file) { // перевод file в blob
+        return new Promise((resolve, reject) => {
+          let reader = new FileReader();
+      
+          reader.onload = () => {
+            resolve(reader.result);
+          };
+      
+          reader.onerror = reject;
+      
+          reader.readAsDataURL(file);
+        })
+      }
+
     async validateItem() {    
-        let inputs = this.formAddNewGoods.current
-        let reader, Blob
+        let inputs = this.formAddNewGoods.current,
+            blob
+
+        blob = await this.readFileAsync(inputs.photo.files[0])
+
+        let body = {
+            productCode: inputs.productCode.value, 
+            title: inputs.title.value,
+            price: inputs.price.value,
+            images: [blob]
+        }
+
         try {
-            reader = new FileReader()
-            reader.addEventListener('load', (event) => {
-                // img.src = event.target.result;
-                Blob = reader.result
-                
-            })
-            reader.readAsDataURL(inputs.file.files[0])
-        }catch (err) {}
-
-       
-
-        if(inputs.title.value!= ' ' && inputs.price.value!= ' ' && inputs.file.files[0].size !=0) {
-            let data = {
-                images: [Blob],
-                title: inputs.title.value,
-                price: inputs.price.value
-            }
-            try {
-
-                var request = new XMLHttpRequest();
-                // 3. Настройка запроса
-                request.open('POST','http://localhost:8080/products',true);
-                request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                // 4. Подписка на событие onreadystatechange и обработка его с помощью анонимной функции
-                request.onreadystatechange = function() {//Call a function when the state changes.
-                    if(request.readyState == 4 && request.status == 200) {
-                        alert(request.responseText);
-                    }
-                }
-                // request.send(params);
-                request.send(data);
-
-                // const response = await fetch('http://localhost:8080/products', {
-                //   method: 'POST', // или 'PUT'
-                //   body: JSON.stringify(data), // данные могут быть 'строкой' или {объектом}!
-                //   headers: {
-                //     'Content-Type': 'application/json'
-                //   }
-                // });
-                // // const json = await response.json();
-                // console.log('Успех:');
-              } catch (error) {
-                console.error('Ошибка:', error);
-            }
+            const response = await fetch('http://localhost:8080/products', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+                body: await JSON.stringify(body)
+            });
+            const result = await response.json();
+            console.log('Успех:', result);
+        } catch (error) {
+            console.error('Ошибка:', error);
         }
     }
 
@@ -71,12 +61,14 @@ export class AddNewGoods extends React.Component {
                         <div className="col-12 left-column">
                             <form className="d-flex flex-column" ref={this.formAddNewGoods}>
 
-                                <Input modification="file" />
-                                <input type="text" placeholder="Title" name="title" />
-                                <input type="text" placeholder="Price" name="price" />
+                                <Input modification="file" name="photo" />
+                                <Input placeholder="Код товара" name="productCode" />
+                                <Input placeholder="Наименование" name="title" />
+                                <Input placeholder="Цена (грн)" name="price" />
                                 
-                                <button onClick={this.validateItem} type="button">Отправить</button>
+                                
                             </form>
+                            <button type="button" onClick={this.validateItem}>Сохранить</button>
                         </div>
 {/* 
                         <div className="col-6 right-column">
