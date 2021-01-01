@@ -59,16 +59,16 @@ export class AddNewGoods extends React.Component {
                 <div className="container-fluid h-100">
                     <div className="row h-100">
                         <div className="col-12 left-column">
-                            <form className="d-flex flex-column" ref={this.formAddNewGoods}>
+                            <form className="d-flex flex-column" onSubmit={this.validateItem} ref={this.formAddNewGoods}>
 
                                 <Input modification="file" name="photo" />
                                 <Input placeholder="Код товара" name="productCode" />
                                 <Input placeholder="Наименование" name="title" />
                                 <Input placeholder="Цена (грн)" name="price" />
                                 
-                                
+                                <button type="sumbit">Сохранить</button>
                             </form>
-                            <button type="button" onClick={this.validateItem}>Сохранить</button>
+                            
                         </div>
 {/* 
                         <div className="col-6 right-column">

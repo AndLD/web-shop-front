@@ -36,7 +36,7 @@ function InputDefault(props) {
 //* file
 function InputFile(props) {
     return(
-        <div className="input-file d-flex justify-content-center">
+        <div className="input-file">
             <InputDefault type={"file"} accept={"image/jpeg,image/png,image/jpg,image/gif"} name={props.name} id={props.id}/>
         </div>
     )
