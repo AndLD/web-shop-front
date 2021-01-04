@@ -1,0 +1,160 @@
+.container {
+    .registration {
+        @media (min-width: 768px) {
+            margin-top: 4.5vh;
+        }
+        @media (min-width: 1497px)  {
+            margin-top: 12vh;
+        }
+
+        background-color: white;
+
+        @media (max-width: 768px) {
+            padding-left: 60px;
+            padding-right: 60px;
+        }
+        @media (min-width: 768px) {
+            padding-top: 15px;
+            padding-bottom: 1px;
+
+            padding-left: 60px;
+            padding-right: 60px;
+
+            border-radius: 45px;
+        }
+
+        form {
+            .title {
+                font-family: "futura-pt-demi";
+                margin-bottom: 3rem;
+                // font-weight: bold;
+                // font-size: 3.1vw;
+                font-size: 60px;
+                // letter-spacing: 2px;
+            }
+
+            ::placeholder {
+                color: black;
+            }
+            // Email, пароль
+            .auth-input {
+                font-weight: bold;
+                font-family: "futura-pt-book";
+                // font-size: 1vw;
+                font-size: 17px;
+                width: 100%;
+                border: none;
+                outline: none;
+                padding-left: 0.3rem;
+                padding-right: 1rem;
+                border-bottom: solid black 1px;
+            }
+
+            // Зарегистрироваться
+            .mainButton {
+                padding-top: 20px;
+                padding-bottom: 20px;
+
+                padding-left: 40px;
+                padding-right: 40px;
+
+                font-size: 18px;
+                // font-size: 1.1vw;
+                letter-spacing: 3px;
+                font-family: "FuturaPT-Medium";
+    
+                border-radius: 40px;
+                border: none;
+                color: white;
+                text-transform: uppercase;
+                background: linear-gradient(to right, rgb(239,18,29), rgb(55,6,9));
+
+                transition: all ease 0.3s;
+
+                &:hover {
+                    background: black;
+                }
+            }
+
+            .other-authes {
+                margin: auto;
+                max-width: 80%;
+                a {
+                    min-width: 50%;
+                }
+            }
+
+            // "или авторизуйтесь через"
+            .title-with-lines {
+                /* Прячем часть линий, выходящие за пределы блока */
+                overflow: hidden;
+                /* Выравниваем заголовок по центру, можно указать left, right для выравнивания влево или вправо */
+                text-align: center;
+                /* Размер заголовка */
+
+                font-family: "futura-pt-book";
+                // font-size: 1.2vw;
+                font-size: 21px;
+                &:before, &:after {
+                    /* Свойство content необходимо указывать хотя бы пустое, иначе псевдоэлементы не отобразятся */
+                    content: "";
+                    /* Свойства линий, выравнивание по центру по вертикали */
+                    display: inline-block;
+                    vertical-align: middle;
+                    /* Ширина - 100% и указываем толщину линии */
+                    width: 100%;
+                    height: 1px;
+                    /* Цвет линии */
+                    background-color: black;
+                    /* Возможность для пседоэлементов изменить позицию линии */
+                    position: relative;
+                }
+                &:before {
+                    /* Ставим левую линию слева от текста, смещая ее на 100% влево */
+                    margin-left: -100%;
+                    /* Отступ линии от заголовка */
+                    left: -14px;
+                }
+                &:after {
+                    /* Ставим правую линию справа от текста, смещая ее на 100% вправо */
+                    margin-right: -100%;
+                    /* Отступ линии от заголовка */
+                    right: -14px;
+                }
+            }
+
+            .already-registered {
+                margin-top: 20px;
+
+                color: rgb(182,182,182);
+                font-family: "futura-pt-book";
+                // font-size: 1.2vw;
+                font-size: 21px;
+                a {
+                    color: rgb(182,182,182);
+                    text-decoration: underline;
+                    &:hover {
+                        color: black;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .circuit-1 {
+        margin-left: 15%;
+        position: absolute;
+        width: 10vw;
+    
+    }
+    .circuit-2 {
+        margin-left: 75%;
+        position: absolute;
+        width: 12vw;
+    }
+}
+
+.bg-w {
+    background-color: white;
+}
