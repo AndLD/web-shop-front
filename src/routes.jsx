@@ -10,6 +10,9 @@ import {TelegramChannel} from "./components/TelegramChannel/TelegramChannel"
 
 import {SlavicAdminPanel} from "./components/SlavicAdminPanel/SlavicAdminPanel"
 
+// import {Registration} from "./components/Registration/Registration"
+import {RegistrationWrapper} from "./wrappers/RegistrationWrapper"
+
 export const useRoutes = () => {
     return (
         <Switch>
@@ -44,6 +47,10 @@ export const useRoutes = () => {
 
             <Route path="/admin" exact> 
                 <SlavicAdminPanel />
+            </Route>
+
+            <Route path="/signup" exact>
+                <RegistrationWrapper />
             </Route>
 
             <Redirect to="/" />
