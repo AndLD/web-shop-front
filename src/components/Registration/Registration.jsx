@@ -6,25 +6,36 @@ export class Registration extends React.Component {
     async register(e) {
         e.preventDefault()
         
-        let data = {
-            email: document.querySelector('.auth-input[name="email"]').value,
-            password: document.querySelector('.auth-input[name="password"]').value
+        let body = {
+            username: "AndLD3",
+            
+            // email: document.querySelector('.auth-input[name="email"]').value,
+            // password: document.querySelector('.auth-input[name="password"]').value,
+            email: "nil10035@gmail.com",
+            password: "qwerty",
+
+            fullName: "Ларионов Андрей Денисович",
+            settings: {
+                is2FAEnabled: false
+            }
         }
 
-        console.log(JSON.stringify(data))
+        console.log(JSON.stringify(body))
 
-        let response = await fetch('http://localhost:8080/users', {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', 'http://localhost:8080/users', false);
 
-        let result = await response.text()
+        xhr.setRequestHeader('Content-Type', 'application/json')
 
-        alert(response.message)
+        xhr.send(JSON.stringify(body));
+
+        if (xhr.status >= 400) {
+            // обработать ошибку
+            alert( xhr.status + ': ' + xhr.statusText ); // пример вывода: 404: Not Found
+        } else {
+            // вывести результат
+            alert( xhr.responseText ); // responseText -- текст ответа.
+        }
     }
 
     onResize() {
