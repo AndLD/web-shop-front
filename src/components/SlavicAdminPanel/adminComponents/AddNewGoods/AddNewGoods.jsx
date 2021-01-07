@@ -47,15 +47,12 @@ export class AddNewGoods extends React.Component {
                 body: await JSON.stringify(body)
             });
             const result = await response.json();
-            console.log('Успех:', result);
-        } catch (error) {
-            console.error('Ошибка:', error);
-        }
+        } catch (error) { }
     }
 
     render() {
         return (
-            <div className="add-new-gooods d-flex flex-column">
+            <div className="add-new-goods d-flex flex-column">
                 <div className="container-fluid h-100">
                     <div className="row h-100">
                         <div className="col-12 left-column">

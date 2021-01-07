@@ -4,16 +4,15 @@ import './itemCard.scss'
 
 export const ItemCard = ({
     itemID, 
-    imgSrc,
+    imgBlob,
     title,
     price
 }) => {
-
     return(
-        <div className="card-item" itemId={itemID}>
+        <div className="card-item" itemID={itemID}>
 
             <div className="photo-item-wr d-flex justify-content-center">
-                <img className="photo-item" src={`/img/goods/${imgSrc}.png`} alt=""/>
+                <img className="photo-item" src={imgBlob} alt={title}/>
             </div>
 
             <div className="text-item-wr d-flex justify-content-center">

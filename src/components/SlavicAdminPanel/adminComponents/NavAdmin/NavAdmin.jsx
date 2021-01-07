@@ -3,7 +3,7 @@ import {CSSTransition, TransitionGroup} from 'react-transition-group';
 
 import './navAdmin.scss'
 
-const Li = ({icon, text, collapsed = true, callback} ) => {
+const Li = ({icon, text, collapsed = true, callback} ) => { //!элемент меню LI
     if(!collapsed) text = ""
     return (
         <li onClick={callback}>
@@ -13,7 +13,7 @@ const Li = ({icon, text, collapsed = true, callback} ) => {
 }
 
 
-const Submenu = ({icon, text, collapsed, callback, children}) => {
+const Submenu = ({icon, text, collapsed, callback, children}) => { //!подменю UL
     const collapsedSubmenu = useRef(null)
     let [status, showSubmenu] = useState(false) //Хук на открытие/закрытие подменю
 
@@ -46,20 +46,15 @@ const Submenu = ({icon, text, collapsed, callback, children}) => {
     )
 }
 
-
-export const NavAdmin = (props) => {
+export const NavAdmin = (props) => { //!сам NAV
     const adminNav = useRef(null)
-
-    let Logo = (
-        <>
-             <img src="/img/logo.png" alt="Tech-price"/>
-             <span>Tech-price</span>
-        </>
-     )
-
-    let collapsed = props.collapsed //true - раскрытое меню, false скрытое/свёрнутое
-
     const [width, changeWindowWidth] = useState()
+    
+    function changeComponent(component) { //!Меняет компонент в main'e.
+        props.changeComponent(component)
+    }
+
+    let collapsed = props.collapsed //!true - раскрытое меню, false скрытое/свёрнутое
 
     useEffect(() => {
         changeWindowWidth(window.innerWidth)
@@ -74,8 +69,6 @@ export const NavAdmin = (props) => {
             } else adminNav.current.classList.remove("w-300")
         }
     })
-
-    if(!collapsed) Logo = null
     
     window.addEventListener("resize", function() { // меняем значения окна в хуке
         changeWindowWidth(window.innerWidth)
@@ -84,23 +77,39 @@ export const NavAdmin = (props) => {
     return (
         <nav className="admin-nav" ref={adminNav}>
             <div className="admin-logo">
-                {Logo}
+                {collapsed ? (
+                    <>
+                        <img src="/img/logo.png" alt="Tech-price"/>
+                        <span>Tech-price</span>
+                    </>
+                ) : ( <> </> )
+                }   
             </div>
             
             <div className="d-flex flex-column align-items-center">
                 <ul className="menu ">
                     
                     <Li icon={"fas fa-home"} text={"Главная"} collapsed={collapsed} callback={() => {
-                        console.log("qqqqewqe")
+                        console.log("1")
+                        
                     }} />
 
                     <Li icon={"fas fa-chart-line"} text={"Статистика"} collapsed={collapsed} callback={() => {
-                        console.log("qqqqewqe")
+                        console.log("2")
+                        
                     }} />
 
-                    <Li icon={"fas fa-book"} active={true} text={"Управление товаром"} collapsed={collapsed} callback={() => {
-                        console.log("qqqqewqe")
-                    }} />
+                    <Submenu icon={"fas fa-book"} collapsed={collapsed} text={"Управление товаром"}>
+                        <Li text={"Добавить товар"} callback={() => {
+                            changeComponent("AddNewGoods")
+                        }} />
+                        <Li text={"Просмотреть товар"} callback={() => {
+                            changeComponent("DisplayGoods")
+                        }} />
+                        <Li text={"Что-то ещё"} callback={() => {
+                            console.log("qqqqewqe")
+                        }} />
+                    </Submenu>
 
                     <Li icon={"fas fa-users"} text={"Пользователи"} collapsed={collapsed} callback={() => {
                         console.log("qqqqewqe")
