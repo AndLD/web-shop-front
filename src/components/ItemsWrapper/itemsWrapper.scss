@@ -1,35 +1,17 @@
-.card-item {
-    max-width: 20%;
-    // border: 1px solid black;
-    .photo-item-wr {
-        margin: 20px 20px 10px 20px; 
-        border-radius: 20px;
-        background-color: #f4f4f4;
-        padding: 10px 0 10px;
-        img.photo-item {
-            width: 80%;
-        }
+@import "node_modules/bootstrap/scss/mixins/_breakpoints";
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+
+.item_wr{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    @include media-breakpoint-down(lg) { 
+        grid-template-columns: auto auto auto auto;
     }
-    .text-item-wr {
-        margin: 0px 20px 5px 20px;     
-            span {
-                display: block;
-                font-size: 15px
-            }
-        
+    @include media-breakpoint-down(md) { 
+        grid-template-columns: auto auto auto;
     }
-    .price-wr {
-        color: #f2121d;
-        margin: 0px 20px 5px 20px;  
-        font-size: 25px;
-        span.price {
-            font-weight: bold;
-        }
-        button.btn-buy {
-            img {
-                width: 30px;
-                height: 25px;
-            }
-        }
+    @include media-breakpoint-down(xs) { 
+        grid-template-columns: auto auto;
     }
 }
