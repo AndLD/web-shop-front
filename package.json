@@ -14,8 +14,10 @@
     "@types/react-dom": "^16.9.10",
     "bootstrap": "^4.5.3",
     "jquery": "^3.5.1",
+    "link-module-alias": "^1.2.0",
     "node-sass": "^4.14.1",
     "react": "^17.0.1",
+    "react-async": "^10.0.1",
     "react-bootstrap": "^1.4.0",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
@@ -27,7 +29,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postinstall": "link-module-alias"
   },
   "eslintConfig": {
     "extends": [
@@ -49,5 +52,11 @@
   },
   "devDependencies": {
     "@types/react-router-dom": "^5.1.6"
+  },
+  "_moduleAliases": {
+    "$src": "src",
+    "$components": "src/components",
+    "$sap": "src/components/SlavicAdminPanel",
+    "$adminComponents": "src/components/SlavicAdminPanel/adminComponents"
   }
 }

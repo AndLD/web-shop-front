@@ -1,5 +1,4 @@
 import React from 'react'
-// import $ from 'jquery'
 
 import {Registration} from "../components/Registration/Registration"
 
