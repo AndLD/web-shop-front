@@ -10,7 +10,7 @@ import {HeaderAdmin} from "./adminComponents/HeaderAdmin/HeaderAdmin"
 export const SlavicAdminPanel = (props) => {
 
     let [collapsed, collapseMenu] = useState(true) //* состояние свёрнутости nav'a true - раскрытый
-    let [componentTitle, changeComponent] = useState("DisplayGoods") //* название компонента в Main'e
+    let [componentTitle, changeComponent] = useState("AddNewGoods") //* название компонента в Main'e
     let component
     switch (componentTitle) {
         case "AddNewGoods":

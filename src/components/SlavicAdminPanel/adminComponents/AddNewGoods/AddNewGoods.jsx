@@ -2,7 +2,8 @@ import React from 'react'
 // import $ from 'jquery'
 import './addNewGoods.scss'
 import {Input} from '../../../Input/Input'
-
+import {fileToBlob} from '../../../../helpers/fileToBlob'
+import {fetchRequest} from '../../../../helpers/fetchRequest'
 export class AddNewGoods extends React.Component {
 
     constructor(props) {
@@ -11,25 +12,11 @@ export class AddNewGoods extends React.Component {
         this.validateItem = this.validateItem.bind(this);
     }
 
-    readFileAsync(file) { // перевод file в blob
-        return new Promise((resolve, reject) => {
-          let reader = new FileReader();
-      
-          reader.onload = () => {
-            resolve(reader.result);
-          };
-      
-          reader.onerror = reject;
-      
-          reader.readAsDataURL(file);
-        })
-      }
-
     async validateItem() {    
         let inputs = this.formAddNewGoods.current,
             blob
 
-        blob = await this.readFileAsync(inputs.photo.files[0])
+        blob = await fileToBlob(inputs.photo.files[0])
 
         let body = {
             productCode: inputs.productCode.value, 
@@ -38,16 +25,14 @@ export class AddNewGoods extends React.Component {
             images: [blob]
         }
 
-        try {
-            const response = await fetch('http://localhost:8080/products', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json;charset=utf-8'
-                },
-                body: await JSON.stringify(body)
-            });
-            const result = await response.json();
-        } catch (error) { }
+        const result = await fetchRequest(
+            'products', 
+            'POST',
+            body,
+            {'Content-Type': 'application/json;charset=utf-8'}
+        )
+
+        console.log(result)
     }
 
     render() {
@@ -63,9 +48,9 @@ export class AddNewGoods extends React.Component {
                                 <Input placeholder="Наименование" name="title" />
                                 <Input placeholder="Цена (грн)" name="price" />
                                 
-                                <button type="sumbit">Сохранить</button>
+                                
                             </form>
-                            
+                            <button onClick={this.validateItem} type="sumbit">Сохранить</button>
                         </div>
 {/* 
                         <div className="col-6 right-column">
