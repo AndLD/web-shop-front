@@ -32,12 +32,12 @@ export class DisplayGoods extends React.Component {
 
                     <div className="goods-table">
                         <table>
-                            <tr>
+                            {/* <tr>
                                 <td><input type="checkbox"/></td>
                                 <td>Изображение</td>
                                 <td>Название товара</td>
                                 <td></td>
-                            </tr>
+                            </tr> */}
                         </table>
                     </div>
                 </div>
